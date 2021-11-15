@@ -1,0 +1,16 @@
+grumphp:
+  stop_on_failure: true
+
+  fixer:
+    enabled: true
+    fix_by_default: true
+
+  tasks:
+    phpcsfixer:
+      config: '.php-cs-fixer.dist.php'
+
+    phpcs:
+      warning_severity: 0
+      encoding: 'UTF-8'
+
+    composer_normalize: null
