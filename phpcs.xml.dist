@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset name="pcsg-generated-ruleset">
+  <description>
+    Created with the PHP Coding Standard Generator.
+    http://edorian.github.com/php-coding-standard-generator/
+  </description>
+
+  <rule ref="Generic.Classes.DuplicateClassName"/>
+  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+  <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+  <rule ref="Generic.Commenting.Todo"/>
+  <rule ref="Generic.Commenting.Fixme"/>
+
+  <rule ref="Generic.ControlStructures.InlineControlStructure">
+    <properties>
+      <property name="error" value="false"/>
+    </properties>
+  </rule>
+
+  <rule ref="Generic.Files.ByteOrderMark"/>
+  <rule ref="Generic.Files.LineEndings"/>
+
+  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+  <rule ref="Generic.Formatting.SpaceAfterCast"/>
+  <rule ref="Generic.Functions.CallTimePassByReference"/>
+  <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+  <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
+
+  <rule ref="Generic.Metrics.CyclomaticComplexity">
+    <properties>
+      <property name="complexity" value="10"/>
+    </properties>
+  </rule>
+
+  <rule ref="Generic.Metrics.NestingLevel">
+    <properties>
+      <property name="nestingLevel" value="10"/>
+      <property name="absoluteNestingLevel" value="30"/>
+    </properties>
+  </rule>
+
+  <rule ref="Generic.NamingConventions.UpperCaseConstantName">
+    <exclude-pattern>*/Enums/*</exclude-pattern>
+  </rule>
+
+  <rule ref="Generic.PHP.DeprecatedFunctions"/>
+  <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+  <rule ref="Generic.PHP.ForbiddenFunctions"/>
+  <rule ref="Generic.PHP.LowerCaseConstant"/>
+
+  <rule ref="Generic.PHP.NoSilencedErrors">
+    <properties>
+      <property name="error" value="false"/>
+    </properties>
+  </rule>
+
+  <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+  <rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+      <property name="exact" value="false"/>
+    </properties>
+  </rule>
+
+  <rule ref="MySource.PHP.GetRequestData"/>
+
+  <rule ref="PEAR.Classes.ClassDeclaration"/>
+  <rule ref="PEAR.Commenting.InlineComment"/>
+  <rule ref="PEAR.ControlStructures.ControlSignature"/>
+  <rule ref="PEAR.Formatting.MultiLineAssignment"/>
+  <rule ref="PEAR.Functions.ValidDefaultValue"/>
+  <rule ref="PEAR.NamingConventions.ValidClassName"/>
+  <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
+
+  <rule ref="PSR1.Classes.ClassDeclaration"/>
+  <rule ref="PSR1.Files.SideEffects"/>
+
+  <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+    <exclude-pattern>*/migrations/*</exclude-pattern>
+  </rule>
+
+  <rule ref="PSR2.Classes.ClassDeclaration"/>
+  <rule ref="PSR2.Classes.PropertyDeclaration"/>
+  <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+  <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+  <rule ref="PSR2.Files.EndFileNewline"/>
+  <rule ref="PSR2.Methods.MethodDeclaration"/>
+
+  <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+  <rule ref="PSR2.Namespaces.UseDeclaration"/>
+
+  <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+  <rule ref="Squiz.PHP.NonExecutableCode"/>
+  <rule ref="Squiz.Scope.MemberVarScope"/>
+  <rule ref="Squiz.Scope.MethodScope"/>
+  <rule ref="Squiz.Scope.StaticThisUsage"/>
+  <rule ref="Squiz.WhiteSpace.CastSpacing"/>
+  <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+  <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+  <rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
+  <rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+  <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+  <rule ref="Zend.Files.ClosingTag"/>
+
+  <rule ref="PSR12"/>
+
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="lineLimit" value="120"/>
+      <property name="absoluteLineLimit" value="150"/>
+    </properties>
+  </rule>
+
+  <rule ref="VariableAnalysis"/>
+  <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis">
+    <properties>
+      <property name="allowUnusedCaughtExceptions" value="true"/>
+      <property name="allowUnusedFunctionParameters" value="true"/>
+    </properties>
+  </rule>
+
+  <rule ref="ImportDetection"/>
+
+  <rule ref="ImportDetection.Imports.RequireImports.Import">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="ImportDetection.Imports.RequireImports">
+    <properties>
+      <property name="ignoreGlobalsWhenInGlobalScope" value="true"/>
+      <property name="ignoreUnimportedSymbols" value="/^[a-z0-9_]+$/"/>
+    </properties>
+  </rule>
+
+  <file>config</file>
+  <file>src</file>
+
+  <exclude-pattern>*/*.js</exclude-pattern>
+  <exclude-pattern>*/*.css</exclude-pattern>
+  <exclude-pattern>*/*.blade.php</exclude-pattern>
+  <exclude-pattern>vendor/*</exclude-pattern>
+</ruleset>
