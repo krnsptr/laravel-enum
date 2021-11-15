@@ -17,7 +17,9 @@
     "homepage": "https://github.com/krnsptr/laravel-enum",
     "require": {
         "php": "^7.4 || ^8.0",
-        "illuminate/support": "^8.0"
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/validation": "^8.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
