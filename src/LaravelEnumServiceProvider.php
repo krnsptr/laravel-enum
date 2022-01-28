@@ -51,11 +51,11 @@ class LaravelEnumServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-enum');
+        // $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-enum');
 
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-enum', function () {
-            return new LaravelEnum();
-        });
+        // $this->app->singleton('laravel-enum', function () {
+        //     return new LaravelEnum();
+        // });
     }
 }
