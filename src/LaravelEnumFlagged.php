@@ -2,9 +2,9 @@
 
 namespace Krnsptr\LaravelEnum;
 
-use BenSampo\Enum\Enum;
+use BenSampo\Enum\FlaggedEnum;
 
-class LaravelEnum extends Enum
+class LaravelEnumFlagged extends FlaggedEnum
 {
     public const DETAIL = [];
 
@@ -28,6 +28,10 @@ class LaravelEnum extends Enum
      */
     public function __toString(): string
     {
+        if (!isset($this->description) && $this->hasMultipleFlags()) {
+            return implode(', ', $this->getFlags());
+        }
+
         return (string) static::getDescription($this->value);
     }
 
@@ -40,7 +44,19 @@ class LaravelEnum extends Enum
     {
         return [
             'DETAIL',
+            'None',
+            'All',
         ];
+    }
+
+    /**
+     * Get all of the flag values in enum.
+     *
+     * @return array
+     */
+    public function getFlagValues(): array
+    {
+        return array_map(fn ($flag) => $flag->value, $this->getFlags());
     }
 
     /**
@@ -87,6 +103,19 @@ class LaravelEnum extends Enum
         return [];
     }
 
+    public static function All(): static
+    {
+        $constant = get_called_class() . '::All';
+
+        if (defined($constant)) {
+            $value = constant($constant);
+        } else {
+            $value = array_reduce(static::getValues(), fn ($carry, $item) => $carry |= $item, 0);
+        }
+
+        return new static($value);
+    }
+
     /**
      * Get patterns for coercing.
      *
@@ -102,19 +131,25 @@ class LaravelEnum extends Enum
      *
      * @return static
      */
-    protected static function coerceByPattern(string $value): ?static
+    public static function coerceByPattern(string $value): ?static
     {
-        $result = null;
+        $result = 0;
 
-        foreach (static::patterns() as $pattern => $target) {
-            if (preg_match($pattern, $value)) {
-                $result = $target;
+        $values = explode(',', $value);
 
-                break;
+        foreach ($values as $value) {
+            $value = trim($value);
+
+            foreach (static::patterns() as $pattern => $target) {
+                if (preg_match($pattern, $value)) {
+                    $result |= $target;
+
+                    break;
+                }
             }
         }
 
-        return static::coerce($result);
+        return new static($result);
     }
 
     /**
