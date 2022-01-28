@@ -1,13 +1,12 @@
 {
     "name": "krnsptr/laravel-enum",
     "description": "My personal boilerplate for eloquent models",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "krnsptr",
         "laravel-enum"
     ],
-    "homepage": "https://github.com/krnsptr/laravel-enum",
-    "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "Kurnia Saputra",
@@ -15,8 +14,9 @@
             "role": "Developer"
         }
     ],
+    "homepage": "https://github.com/krnsptr/laravel-enum",
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4 || ^8.0",
         "illuminate/support": "^8.0"
     },
     "require-dev": {
@@ -38,22 +38,25 @@
             "Krnsptr\\LaravelEnum\\Tests\\": "tests"
         }
     },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
-    },
     "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true
+        },
         "sort-packages": true
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Krnsptr\\LaravelEnum\\LaravelEnumServiceProvider"
-            ],
             "aliases": {
                 "LaravelEnum": "Krnsptr\\LaravelEnum\\LaravelEnumFacade"
-            }
+            },
+            "providers": [
+                "Krnsptr\\LaravelEnum\\LaravelEnumServiceProvider"
+            ]
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     }
 }
