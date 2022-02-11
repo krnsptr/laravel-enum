@@ -13,4 +13,6 @@ grumphp:
       warning_severity: 0
       encoding: 'UTF-8'
 
-    composer_normalize: null
+    composer_normalize:
+      no_check_lock: true
+      no_update_lock: true
