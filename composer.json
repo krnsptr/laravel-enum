@@ -17,7 +17,7 @@
     "homepage": "https://github.com/krnsptr/laravel-enum",
     "require": {
         "php": "^7.4 || ^8.0",
-        "bensampo/laravel-enum": "dev-feature/laravel-9-support",
+        "bensampo/laravel-enum": "^6.2.0",
         "illuminate/database": "^8.0 || ^9.0",
         "illuminate/support": "^8.0 || ^9.0",
         "illuminate/validation": "^8.0 || ^9.0"
@@ -32,12 +32,6 @@
         "sirbrillig/phpcs-import-detection": "^1.3",
         "sirbrillig/phpcs-variable-analysis": "^2.11"
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/krnsptr/bensampo-laravel-enum.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Krnsptr\\LaravelEnum\\": "src"
