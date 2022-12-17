@@ -123,7 +123,7 @@ class LaravelEnum extends Enum
      * @param  mixed  $enumKeyOrValue
      * @return static|null
      */
-    public static function coerce($enumKeyOrValue): ?self
+    public static function coerce($enumKeyOrValue): ?static
     {
         $enum = parent::coerce($enumKeyOrValue);
 
