@@ -6,10 +6,6 @@ use BenSampo\Enum\Enum;
 
 class LaravelEnum extends Enum
 {
-    public const DETAIL = [];
-
-    public array $detail = [];
-
     /**
      * Construct an Enum instance.
      *
@@ -19,8 +15,6 @@ class LaravelEnum extends Enum
     public function __construct($enumValue)
     {
         parent::__construct($enumValue);
-
-        $this->detail = static::getDetail($enumValue);
     }
 
     /**
@@ -39,7 +33,6 @@ class LaravelEnum extends Enum
     protected static function removedConstants(): array
     {
         return [
-            'DETAIL',
         ];
     }
 
@@ -55,36 +48,6 @@ class LaravelEnum extends Enum
         $removed_keys = array_merge(static::removedConstants(), static::removedConstants());
 
         return array_diff_key($constants, array_flip($removed_keys));
-    }
-
-    /**
-     * Get the description for an enum value
-     *
-     * @param  mixed  $value
-     * @return string
-     */
-    public static function getDescription($value): string
-    {
-        if (isset(static::DETAIL[$value]['text'])) {
-            return static::DETAIL[$value]['text'];
-        }
-
-        return parent::getDescription($value);
-    }
-
-    /**
-     * Get the detail for an enum value
-     *
-     * @param  mixed  $value
-     * @return string
-     */
-    public static function getDetail($value): array
-    {
-        if (isset(static::DETAIL[$value])) {
-            return static::DETAIL[$value];
-        }
-
-        return [];
     }
 
     /**

@@ -6,10 +6,6 @@ use BenSampo\Enum\FlaggedEnum;
 
 class LaravelEnumFlagged extends FlaggedEnum
 {
-    public const DETAIL = [];
-
-    public array $detail = [];
-
     /**
      * Construct an Enum instance.
      *
@@ -19,8 +15,6 @@ class LaravelEnumFlagged extends FlaggedEnum
     public function __construct($enumValue)
     {
         parent::__construct($enumValue);
-
-        $this->detail = static::getDetail($enumValue);
     }
 
     /**
@@ -43,7 +37,6 @@ class LaravelEnumFlagged extends FlaggedEnum
     protected static function removedConstants(): array
     {
         return [
-            'DETAIL',
             'None',
             'All',
         ];
@@ -81,26 +74,7 @@ class LaravelEnumFlagged extends FlaggedEnum
      */
     public static function getDescription($value): string
     {
-        if (isset(static::DETAIL[$value]['text'])) {
-            return static::DETAIL[$value]['text'];
-        }
-
         return parent::getDescription($value);
-    }
-
-    /**
-     * Get the detail for an enum value
-     *
-     * @param  mixed  $value
-     * @return string
-     */
-    public static function getDetail($value): array
-    {
-        if (isset(static::DETAIL[$value])) {
-            return static::DETAIL[$value];
-        }
-
-        return [];
     }
 
     public static function All(): static
